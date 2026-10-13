@@ -1,14 +1,14 @@
 package com.Yazan.demo.controllers;
 
 import com.Yazan.demo.abstracts.EmployeeService;
+import com.Yazan.demo.dto.EmployeeCreate;
 import com.Yazan.demo.entities.Employee;
 import com.Yazan.demo.shared.GlobalResponse;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
 
@@ -31,14 +31,11 @@ public class EmployeeController {
         );
     }
 
-//    @PostMapping("/create")
-//    public ResponseEntity<GlobalResponse<Employee>> create(@Valid @RequestBody Employee e) {
-//        e.setId(UUID.randomUUID());
-//        e.setDepartmentId(UUID.randomUUID());
-//        employees.add(e);
-//        return ResponseEntity
-//                .status(HttpStatus.CREATED)
-//                .body(GlobalResponse.success(e, "created successfully"));
-//    }
+    @PostMapping("/create")
+    public ResponseEntity<GlobalResponse<Employee>> create(@Valid @RequestBody EmployeeCreate e) {
+        return ResponseEntity
+                .status(HttpStatus.CREATED)
+                .body(GlobalResponse.success(employeeService.Create(e), "created successfully"));
+    }
 
 }
