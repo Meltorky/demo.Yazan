@@ -37,5 +37,4 @@ public class Carlos {
     @UuidGenerator
     @Column(unique = true, nullable = false)
     private String qrCodeIdentifier;
-
 }

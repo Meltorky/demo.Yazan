@@ -33,7 +33,7 @@ public class CarlosCxGift {
     @JsonProperty("carlosId")
     private Carlos carlos;
 
-    public long getDepartment() {
+    public long getCarlos() {
         return carlos.getId();
     }
 }
