@@ -176,12 +176,16 @@ public class CarlosController {
     }
 
     @PostMapping("/admin-login")
-    public ResponseEntity<GlobalResponse<String>> login(@Valid @RequestBody AdminLoginDTO loginDTO) {
+    public ResponseEntity<GlobalResponse<Void>> login(@Valid @RequestBody AdminLoginDTO loginDTO) {
 
         if (ADMIN_USERNAME.equals(loginDTO.userName()) && ADMIN_PASSWORD.equals(loginDTO.password())) {
-            return ResponseEntity.ok("Login successful!");
+            return ResponseEntity
+                    .status(HttpStatus.OK)
+                    .body(GlobalResponse.success("Login successful!"));
         }
-        return ResponseEntity.status(401).body("Invalid username or password");
+        return ResponseEntity
+                .status(HttpStatus.UNAUTHORIZED)
+                .body(GlobalResponse.success("Login successful!"));
     }
 }
 // need to check first if there is only one is false and the rest are true and make sure the stamp is = 5
