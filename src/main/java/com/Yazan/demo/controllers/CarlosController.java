@@ -55,8 +55,6 @@ public class CarlosController {
     }
 
 
-    // ADMIN Endpoints
-
     @PostMapping("/login")
     public ResponseEntity<GlobalResponse<Carlos>> login(@RequestBody @Valid CarlosCreate c) {
 
@@ -110,6 +108,8 @@ public class CarlosController {
                 .body(GlobalResponse
                         .success(carlosRepo.save(newCarlos), "created successfully"));
     }
+
+    // ADMIN Endpoints
 
     @PostMapping("add-visit/{qrCodeIdentifier}")
     public ResponseEntity<GlobalResponse<Carlos>> addVisit(@PathVariable String qrCodeIdentifier) {
