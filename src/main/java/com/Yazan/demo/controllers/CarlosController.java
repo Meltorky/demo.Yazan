@@ -21,10 +21,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
-@CrossOrigin(origins = {
-        "http://localhost:3000",
-        "https://loyalty-card-delta-jet.vercel.app"
-})
+@CrossOrigin(origins = "https://loyalty-card-delta-jet.vercel.app")
 @RestController
 @RequestMapping("/carlos")
 public class CarlosController {
